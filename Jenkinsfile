@@ -1,6 +1,8 @@
 pipeline {
 
-  agent any 
+  agent {
+    docker { image 'node:latest' }
+  }
   
   stages {
     
@@ -12,7 +14,7 @@ pipeline {
            script {
               def config = readJSON file:"$settingsFile"
               sh "npm i"
-              sh "npm run build --prod"    
+              sh "ng build --prod"    
            }
         }
       }
