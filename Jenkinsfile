@@ -1,8 +1,8 @@
 pipeline {
 
-  agent {
-    docker { image 'node:latest' }
-  }
+  agent any
+  
+  tools {nodejs "815Node"}
   
   stages {
     
