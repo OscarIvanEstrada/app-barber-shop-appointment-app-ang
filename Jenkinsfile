@@ -51,7 +51,7 @@ pipeline {
               echo "The file $settingsFile"
               def config = readJSON file:"$settingsFile"
               sh 'docker service rm app-barber-shop-appointment-app-ang || true'
-              sh "docker service create --name app-barber-shop-appointment-app-ang --replicas 3 -p 8086:80 -e $API_URL=${config.$API_URL} oiestradag/app-barber-shop-appointment-app-ang"
+              sh "docker service create --name app-barber-shop-appointment-app-ang --replicas 3 -p 8086:80 -e API_URL=${config.API_URL} oiestradag/app-barber-shop-appointment-app-ang"
             }
         }       
       }
