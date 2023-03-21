@@ -1,6 +1,8 @@
 pipeline {
 
-  agent any 
+  agent {
+    docker { image 'node:latest' }
+  }
   
   stages {
     
@@ -8,15 +10,14 @@ pipeline {
       steps {
          configFileProvider([configFile(fileId: 'app-barber-shop-appointment-app-ang', variable: 'settingsFile')]) {
            echo 'building the applications...'
-           
-           script {
-             def config = readJSON file:"$settingsFile"{
-              sh "npm install -g @angular/cli"
-              sh "npm i"
-              sh "ng build --prod"    
+              script {
+                def config = readJSON file:"$settingsFile"
+                sh "npm install -g @angular/cli"
+                sh "npm i"
+                sh "ng build --prod"    
+              }
            }
         }
-      }
     }
     
     
