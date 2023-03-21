@@ -1,0 +1,79 @@
+
+<!-- section -->
+<section>
+
+<div class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 flex flex-col my-2">
+<form [formGroup]="formClient" role="form">
+Client
+  <div class="-mx-3 md:flex mb-6">
+
+ 			
+ 	<div class="md:w-1/2 px-3 mb-6 md:mb-0">
+      <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-Client-clientName">
+        clientName
+      </label>
+      <input formControlName="clientName" class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3" id="grid-Client-clientName" type="text" placeholder="clientName">
+      <p class="text-red text-xs italic">Please fill out this field.</p>
+    </div>
+
+ 			
+ 	<div class="md:w-1/2 px-3 mb-6 md:mb-0">
+      <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-Client-phoneNumber">
+        phoneNumber
+      </label>
+      <input formControlName="phoneNumber" class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3" id="grid-Client-phoneNumber" type="text" placeholder="phoneNumber">
+      <p class="text-red text-xs italic">Please fill out this field.</p>
+    </div>
+
+   
+  </div>
+  <div class="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
+ <div class="rounded-md shadow">
+      <a (click)="getclient()" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 md:py-4 md:text-lg md:px-10">
+       	 getClient
+      </a>
+    </div>
+
+ <div class="rounded-md shadow">
+      <a (click)="postclient()" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 md:py-4 md:text-lg md:px-10">
+       	 postClient
+      </a>
+    </div>
+
+  </div>
+</form>
+
+<div class="flex flex-col">
+  <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
+    <div class="py-2 inline-block min-w-full sm:px-6 lg:px-8">
+      <div class="overflow-hidden">
+        <table class="min-w-full">
+          <thead class="border-b">
+            <tr>
+			  <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                 clientName
+              </th>
+			  <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                 phoneNumber
+              </th>
+             
+            </tr>
+          </thead>
+          <tbody>
+			<tr *ngFor="let item of result" class="border-b">
+ 			 <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                {{item.clientName}}
+              </td>
+ 			 <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                {{item.phoneNumber}}
+              </td>
+      		</tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
+</section>
