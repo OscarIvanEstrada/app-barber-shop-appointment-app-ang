@@ -12,10 +12,9 @@ pipeline {
            echo 'building the applications...'
               script {
                 def config = readJSON file:"$settingsFile"
-                sh "apt-get install npm"
-                sh "npm install -g @angular/cli"
+
                 sh "npm i"
-                sh "ng build --prod"    
+ 
               }
            }
         }
